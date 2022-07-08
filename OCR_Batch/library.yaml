@@ -1,0 +1,70 @@
+---
+title: OCR Batch Inference
+version: 1.0.0
+description: "detect and parse text from images in ascii format"
+long_description: "Detecting the text value in several languages from an image and writing the output in a csv file"
+icon: python
+
+author: "cnvrg"
+author_email: "info@cnvrg.io"
+
+tags:
+  - training
+
+command: python3 ocr_batch_predict.py
+
+requirements:
+  cpu: 3.5
+  memory: 8
+  gpu: 0
+  hpu: 0
+
+image: python:3.8.6
+
+language: python3
+
+arguments:
+  - key: 'img_dir'
+    type: 'categorical'
+    values:
+      - '/data/imagdata/'
+  - key: 'lang_list'
+    type: 'categorical'
+    values:
+      - 'en'
+  - key: 'decoder'
+    type: 'categorical'
+    values:
+      - 'wordbeamsearch'
+  - key: 'beamWidth'
+    type: 'discrete'
+    values:
+      - '10'
+  - key: 'contrast_ths'
+    type: 'discrete'
+    values:
+      - '0.4'
+  - key: 'adjust_contrast'
+    type: 'discrete' 
+    values:
+      - '0.5'
+  - key: 'text_threshold'
+    type: 'discrete' 
+    values:
+      - '0.5'
+  - key: 'link_threshold'
+    type: 'discrete'
+    values:
+      - '0.5'
+  - key: 'mag_ratio'
+    type: 'discrete'
+    values:
+      - '1'
+  - key: 'height_ths'
+    type: 'discrete'
+    values:
+      - '0.5'
+  - key: 'width_ths'
+    type: 'discrete'
+    values:
+      - '0.5'

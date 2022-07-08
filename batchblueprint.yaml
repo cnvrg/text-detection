@@ -1,0 +1,130 @@
+---
+title: OCR Batch Inference
+version: 1.0.0
+description: "detect and parse text from images in ascii format"
+long_description: "writing the text found in images and creating bounding boxes over the text in the image"
+
+author: "cnvrg"
+author_email: "libhub@cnvrg.io"
+
+# At least one tag [inference, training, data] must be present
+tags:
+  - training
+
+# List of tasks (libraries)
+tasks:
+  - title: S3 Connector
+    top: 300
+    left: 0
+
+    # Type must be according to the flow task conventions (data, exec, deploy)
+    type: exec
+
+    # The library data
+    library: s3-connector
+    library_version: 1.0.0
+
+    # The flattened library parameters (in this case we have training library)
+    command: python s3-connector.py
+
+    requirements:
+      cpu: 3.5
+      memory: 8
+      gpu: 0
+      hpu: 0
+
+    image: cnvrg:v5.0
+    language: python3
+
+    # The "arguments" property changes to "params", rest remains the same.
+    # Params in the blueprint yaml can be used to override the arguments in the library.
+    params:
+      - key: endpoint
+        type: 'categorical'
+        values:
+          - 'http://s3.amazonaws.com download'
+      - key: bucketname
+        type: 'categorical'
+        values:
+          - 'libhub-readme'
+      - key: localdir
+        type: 'categorical'
+        values:
+          - '/cnvrg'
+      - key: prefix
+        type: 'categorical'
+        values:
+          - 'text_detection_data/'
+          
+  - title: OCR Batch Inference
+    top: 100
+    left: 500
+
+    # Type must be according to the flow task conventions (data, exec, deploy)
+    type: exec
+
+    # The library data
+    library: ocr-batch-inference
+    library_version: 1.0.0
+
+    # The flattened library parameters (in this case we have training library)
+    command: python3 ocr_batch_predict.py
+
+    requirements:
+      cpu: 3.5
+      memory: 8
+      gpu: 0
+      hpu: 0
+
+    image: python:3.8.6
+    language: python3
+
+    params:
+      - key: 'img_dir'
+        type: 'categorical'
+        values:
+          - '/data/imagdata/'
+      - key: 'lang_list'
+        type: 'categorical'
+        values:
+          - 'en'
+      - key: 'decoder'
+        type: 'categorical'
+        values:
+          - 'wordbeamsearch'
+      - key: 'beamWidth'
+        type: 'discrete'
+        values:
+          - '10'
+      - key: 'contrast_ths'
+        type: 'discrete'
+        values:
+          - '0.4'
+      - key: 'adjust_contrast'
+        type: 'discrete' 
+        values:
+          - '0.5'
+      - key: 'text_threshold'
+        type: 'discrete' 
+        values:
+          - '0.5'
+      - key: 'link_threshold'
+        type: 'discrete'
+        values:
+          - '0.5'
+      - key: 'mag_ratio'
+        type: 'discrete'
+        values:
+          - '1'
+      - key: 'height_ths'
+        type: 'discrete'
+        values:
+          - '0.5'
+      - key: 'width_ths'
+        type: 'discrete'
+        values:
+          - '0.5'
+
+relations:
+    - from: S3 Connector
+      to: OCR Batch Inference

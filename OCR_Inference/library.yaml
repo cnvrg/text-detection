@@ -1,0 +1,38 @@
+---
+title: Inference
+version: 1.0.0
+description: "Detecting and writing text value from images"
+icon: python
+
+author: "cnvrg"
+author_email: "libhub@cnvrg.io"
+
+tags:
+  - inference
+
+kind: webservice
+
+command: python3 predict.py
+
+requirements:
+  cpu: 2
+  memory: 8
+  gpu: 0
+  hpu: 0
+
+image: cnvrg/cnvrg:v5.0
+
+language: python3
+
+arguments:
+  accept_files: false
+  file_name: predict.py
+  function_name: predict
+  prep_file: ''
+  prep_function: ''
+  input_example:
+    img: file
+  input_schema:
+    img: file
+  output_schema:
+    output: text

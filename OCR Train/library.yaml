@@ -1,0 +1,40 @@
+---
+title: OCR Train
+version: 1.0.0 
+description: Training the OCR algorithm for custom dataset. 
+icon: python 
+
+author: "cnvrg"
+author_email: "libhub@cnvrg.io"
+
+
+tags:
+  - training
+
+command: python3 train.py
+
+requirements:
+  cpu: 2
+  memory: 8
+  gpu: 1
+  hpu: 0
+
+image: python:3.8.6
+
+language: python3
+
+arguments:
+  - key: language
+    type: 'categorical'
+    values:
+        - 'en'
+  - key: data
+    type: 'categorical'
+    values:
+        - '/input/s3_connector/ocr_data'
+  - key: iterations
+    type: 'discrete'
+    values: 
+        - '300000'
+    
+
