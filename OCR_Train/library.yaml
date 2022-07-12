@@ -14,12 +14,12 @@ tags:
 command: python3 train.py
 
 requirements:
-  cpu: 2
+  cpu: 3.5
   memory: 8
-  gpu: 1
+  gpu: 0
   hpu: 0
 
-image: python:3.8.6
+image: cnvrg/cnvrg:v5.0
 
 language: python3
 

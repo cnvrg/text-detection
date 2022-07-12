@@ -67,7 +67,7 @@ tasks:
     command: python3 train.py
 
     requirements:
-      cpu: 2
+      cpu: 3.5
       memory: 8
       gpu: 0
       hpu: 0
@@ -102,7 +102,7 @@ tasks:
     kind: webservice
 
     requirements:
-      cpu: 2
+      cpu: 3.5
       memory: 8
       gpu: 0
       hpu: 0

@@ -19,12 +19,12 @@ tasks:
     type: deploy
 
     library: inference
-    library_version: 1.1.9
+    library_version: 1.0.0
 
     kind: webservice
 
     requirements:
-      cpu: 2
+      cpu: 3.5
       memory: 8
       gpu: 0
       hpu: 0
