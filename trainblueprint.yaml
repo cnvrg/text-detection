@@ -55,7 +55,7 @@ tasks:
         type: 'categorical'
         values:
           - 'ocr_data/'
-  - title: OCR Train
+  - title: Train
     top: 300
     left: 0
 
