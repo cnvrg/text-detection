@@ -5,7 +5,7 @@ experiment_name: 'custom'
 train_data: 'all_data'
 valid_data: 'all_data/val'
 manualSeed: 1111
-workers: 6
+workers: 1
 batch_size: 32 #32
 num_iter: 300000
 valInterval: 20000
