@@ -61,7 +61,7 @@ tasks:
 
     type: exec
 
-    library: train
+    library: ocr-train
     library_version: 1.0.0
 
     command: python3 train.py
@@ -96,7 +96,7 @@ tasks:
 
     type: deploy
 
-    library: inference
+    library: ocr-inference
     library_version: 1.0.0
 
     kind: webservice
@@ -124,6 +124,6 @@ tasks:
       
 relations:
     - from: S3 Connector
-      to: OCR Train
-    - from: OCR Train
+      to: Train
+    - from: Train
       to: Inference

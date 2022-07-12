@@ -1,5 +1,5 @@
 ---
-title: Inference
+title: OCR Inference
 version: 1.0.0
 description: "Detecting and writing text value from images"
 icon: python
