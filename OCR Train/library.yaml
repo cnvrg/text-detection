@@ -1,5 +1,5 @@
 ---
-title: OCR Train
+title: Train
 version: 1.0.0 
 description: Training the OCR algorithm for custom dataset. 
 icon: python 

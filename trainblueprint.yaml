@@ -61,7 +61,7 @@ tasks:
 
     type: exec
 
-    library: ocr-train
+    library: train
     library_version: 1.0.0
 
     command: python3 train.py

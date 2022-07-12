@@ -96,14 +96,14 @@ else:
 
 reader = 0
 # check if the path exists for /input/ocr_train/custom_model.pth which means the user has retrained a model
-if os.path.exists("/input/ocr_train/custom_model.pth"):
+if os.path.exists("/input/train/custom_model.pth"):
 
-    with open("/input/ocr_train/custom_model.yaml", "r", encoding="utf8") as stream:
+    with open("/input/train/custom_model.yaml", "r", encoding="utf8") as stream:
         opt = yaml.safe_load(stream)
     reader = easyocr.Reader(
         [opt["lang_list"][0]],
-        model_storage_directory="/input/ocr_train",
-        user_network_directory="/input/ocr_train",
+        model_storage_directory="/input/train",
+        user_network_directory="/input/train",
         recog_network="custom_model",
         download_enabled=False,
     )
