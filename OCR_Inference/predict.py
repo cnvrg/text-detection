@@ -133,7 +133,6 @@ def predict(data):
         cv2.imwrite(savepath, img_dec)  # save the decoded image
         result = reader.readtext(  # run the OCR model with the loaded paramters
             savepath,
-            rotation_info=[90, 180, 270],
             contrast_ths=contrast_ths,
             adjust_contrast=adjust_contrast,
             decoder=decoder,
