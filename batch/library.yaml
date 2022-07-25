@@ -1,5 +1,5 @@
 ---
-title: OCR Batch Inference
+title: Text Detection Batch Inference
 version: 1.0.0
 description: "detect and parse text from images in ascii format"
 long_description: "Detecting the text value in several languages from an image and writing the output in a csv file"

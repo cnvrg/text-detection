@@ -1,7 +1,6 @@
-# Optical Character Recognition (Batch Predict)
-Optical character recognition or optical character reader is the electronic or mechanical conversion of images of typed, handwritten or printed text into machine-encoded text, whether from a scanned document, a photo of a document, a scene-photo or from subtitle text superimposed on an image. 
+# Text Detection (Batch Predict)
+Text Detection is the electronic or mechanical conversion of images of typed, handwritten or printed text into machine-encoded text, whether from a scanned document, a photo of a document, a scene-photo or from subtitle text superimposed on an image. 
 
-There are several different libraries which can solve the OCR problem, including Google's Tesseract, Amazon's Textract, ABBY Fine Reader and Google's Cloud Vision. Most of them operate from the same basic principle but vary in their parsing of the various fonts and dialects.
 ### Features
 - Upload the images with text and get the text detected in a bounding box as well the parsing of the text in simple language
 - User can choose to get specific languages detected and recognized by choosing the arguments
@@ -29,7 +28,7 @@ There are several different libraries which can solve the OCR problem, including
 
 ## How to run
 ```
-python3 easy_ocr.py --img_dir /data/imagdata/ --lang_list en --decoder wordbeamsearch --beamWidth 10 --contrast_ths 0.5 --adjust_contrast 0.5 --text_threshold 0.5 --link_threshold 0.5 --mag_ratio 1 --height_ths 0.5 --width_ths 0.5
+python3 batch_predict.py --img_dir /data/imagdata/ --lang_list en --decoder wordbeamsearch --beamWidth 10 --contrast_ths 0.5 --adjust_contrast 0.5 --text_threshold 0.5 --link_threshold 0.5 --mag_ratio 1 --height_ths 0.5 --width_ths 0.5
 ```
 
 ### Reference

@@ -1,4 +1,4 @@
-You can use this blueprint to immediately detect and recognize text in your images. For using this pretrained OCR model, you will need to create a ready-to-use API-endpoint that can be integrated with your data and application, in minutes.
+You can use this blueprint to immediately detect and recognize text in your images. For using this pretrained Text Detection model, you will need to create a ready-to-use API-endpoint that can be integrated with your data and application, in minutes.
 
 1. Click on `Use Blueprint` button
 2. In the pop up, choose the relevant compute you want to use to deploy your API endpoint

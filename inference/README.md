@@ -1,7 +1,7 @@
-# Optical Character Recognition Inference
-Optical character recognition or optical character reader is the electronic or mechanical conversion of images of typed, handwritten or printed text into machine-encoded text, whether from a scanned document, a photo of a document, a scene-photo or from subtitle text superimposed on an image. 
+# Text Detection Inference
+Text Detection is the electronic or mechanical conversion of images of typed, handwritten or printed text into machine-encoded text, whether from a scanned document, a photo of a document, a scene-photo or from subtitle text superimposed on an image. 
 
-This library deploys the OCR model which you can immediately use to run inferences on your images. By default `English` language model is loaded. In case your images have text from different languages, you can choose to set the the environment variables in cnvrg and provide the list of all languages in your images.
+This library deploys the Text Detection model which you can immediately use to run inferences on your images. By default `English` language model is loaded. In case your images have text from different languages, you can choose to set the the environment variables in cnvrg and provide the list of all languages in your images.
 You can set the environment variables as follows:
 1. Open your project.
 2. Go to `settings` tab for the project.
@@ -13,7 +13,7 @@ For example for in case your images have English and Chinese text then enter the
 `value`: en,ch_sim
 
 **Note**: Currently we only support inference on english model for pretrained models. In case you have trained the model on your own data, in that case you can refer the list of languages supported here. [here](https://www.jaided.ai/easyocr/).(Scroll down the page to see the list) 
-Similarly you can choose to change the default for certain arguments to the OCR model by clicking `+` and adding more environment variables. Different parameters are explained below:
+Similarly you can choose to change the default for certain arguments to the Text Detection model by clicking `+` and adding more environment variables. Different parameters are explained below:
 
 - `lang_list` list of language code you want to recognize, for example 'ch_sim','en'. Currently only english supported for pretrained models. (Models that were not trained by you.)
 - `decoder` decoder algorithm (default = 'greedy') - options are 'greedy', 'beamsearch' and 'wordbeamsearch'.

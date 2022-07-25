@@ -1,4 +1,4 @@
-You can retrain the OCR algortihm to fine tune it for specific fonts which the default OCR model cannot recognize. You need to provide the training data containing images of the text of the font you want to fine on. This blueprint does training and deploys the fine tuned model which can be used for inference using API calls.
+You can retrain the Text Detection algortihm to fine tune it for specific fonts which the default Text Detection model cannot recognize. You need to provide the training data containing images of the text of the font you want to fine on. This blueprint does training and deploys the fine tuned model which can be used for inference using API calls.
 
 1. Click on `Use Blueprint` button
 2. In the pop up, choose the relevant compute you want to use to deploy your API endpoint

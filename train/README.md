@@ -1,6 +1,6 @@
-# Optical Character Recognition Training
+# Text Detection Training
 
-This library trains the OCR algorithm on custom fonts. In case the default model is performing poorly on your given set of images due to a specific font or background, you can choose to retrain the OCR algorithm on the dataset similar to your images.
+This library trains the Text Detection algorithm on custom fonts. In case the default model is performing poorly on your given set of images due to a specific font or background, you can choose to retrain the Text Detection algorithm on the dataset similar to your images.
 
 All you need is approximately 1500 images, which are essentially cutout of the words written in the font of your choice. For example below
 

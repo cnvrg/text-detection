@@ -1,5 +1,5 @@
 ---
-title: OCR Batch Inference
+title: Text Detection Batch Inference
 version: 1.0.0
 description: "detect and parse text from images in ascii format"
 long_description: "writing the text found in images and creating bounding boxes over the text in the image"
@@ -56,7 +56,7 @@ tasks:
         values:
           - 'text_detection_data/'
           
-  - title: OCR Batch Inference
+  - title: Batch Inference
     top: 100
     left: 500
 
@@ -64,11 +64,11 @@ tasks:
     type: exec
 
     # The library data
-    library: ocr-batch-inference
+    library: text-detection-batch-inference
     library_version: 1.0.0
 
     # The flattened library parameters (in this case we have training library)
-    command: python3 ocr_batch_predict.py
+    command: python3 batch_predict.py
 
     requirements:
       cpu: 3.5
@@ -127,4 +127,4 @@ tasks:
 
 relations:
     - from: S3 Connector
-      to: OCR Batch Inference
+      to: Batch Inference

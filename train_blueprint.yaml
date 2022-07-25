@@ -1,8 +1,8 @@
 ---
-title: OCR Training
+title: Text Detection Training
 version: 1.0.0 
-description: Training the OCR algorithm for custom dataset and deploying it. 
-long_description: Training the OCR algorithm to for custom object detection and deploying the final model as an endpoint. 
+description: Training the text detecion algorithm for custom dataset and deploying it. 
+long_description: Training the text detection algorithm to for custom object detection and deploying the final model as an endpoint. 
 
 author: "cnvrg"
 author_email: "libhub@cnvrg.io"
@@ -61,7 +61,7 @@ tasks:
 
     type: exec
 
-    library: ocr-train
+    library: text-detection-train
     library_version: 1.0.0
 
     command: python3 train.py
@@ -96,7 +96,7 @@ tasks:
 
     type: deploy
 
-    library: ocr-inference
+    library: text-detection-inference
     library_version: 1.0.0
 
     kind: webservice

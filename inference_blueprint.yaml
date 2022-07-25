@@ -1,5 +1,5 @@
 ---
-title: OCR Inference
+title: Text Detection Inference
 version: 1.0.0
 description: "Detecting and writing text value from images"
 long_description: "Detecting the text value in several languages from an image and writing it as a json response"
@@ -18,7 +18,7 @@ tasks:
 
     type: deploy
 
-    library: ocr-inference
+    library: text-detection-inference
     library_version: 1.0.0
 
     kind: webservice
