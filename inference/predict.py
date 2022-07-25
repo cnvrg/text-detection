@@ -1,22 +1,17 @@
 import os
 import cv2
-import argparse
 import base64
 import numpy as np
 import magic
 import pathlib
 import sys
 import yaml
-import shutil
+import requests
 
 scripts_dir = pathlib.Path(__file__).parent.resolve()
 easyocr_dir = os.path.join(scripts_dir, "easyocr")
 sys.path.append(easyocr_dir)
 
-import requests
-import os
-import pathlib
-import shutil
 
 BASE_FOLDER_URL = "https://libhub-readme.s3.us-west-2.amazonaws.com/model_files/ocr/"
 
@@ -36,7 +31,6 @@ def download_model_files():
             response = requests.get(BASE_FOLDER_URL + f)
             with open(current_dir + "/model_dir/" + f, "wb") as fb:
                 fb.write(response.content)
-            # shutil.move(f'{f}',current_dir+'/model_dir')
 
 
 download_model_files()

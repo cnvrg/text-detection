@@ -33,7 +33,9 @@ tasks:
     language: python3
 
     accept_files: false
-
+    gunicorn_config:
+    - key: workers
+      value: '1'
     file_name: predict.py 
     function_name: predict
     prep_file: '' 
