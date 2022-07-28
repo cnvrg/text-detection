@@ -1,5 +1,5 @@
 ---
-title: Text Detection Batch Inference
+title: Text Detection Batch
 version: 1.0.0
 description: "detect and parse text from images in ascii format"
 long_description: "writing the text found in images and creating bounding boxes over the text in the image"
@@ -33,7 +33,7 @@ tasks:
       gpu: 0
       hpu: 0
 
-    image: cnvrg:v5.0
+    image: cnvrg/cnvrg:v5.0
     language: python3
 
     # The "arguments" property changes to "params", rest remains the same.
@@ -54,7 +54,7 @@ tasks:
       - key: prefix
         type: 'categorical'
         values:
-          - 'text_detection_data/'
+          - 'text_detection_batch_data/'
           
   - title: Batch Inference
     top: 100
@@ -83,7 +83,7 @@ tasks:
       - key: 'img_dir'
         type: 'categorical'
         values:
-          - '/data/imagdata/'
+          - '/input/s3_connector/text_detection_batch_data'
       - key: 'lang_list'
         type: 'categorical'
         values:

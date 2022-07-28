@@ -6,6 +6,7 @@ Text Detection is the electronic or mechanical conversion of images of typed, ha
 - User can choose to get specific languages detected and recognized by choosing the arguments
 
 # Input Arguments
+- `--retrained_model_path` if you want to use a retrained model for batch predict, provide path for the same, else do not enter this argument. (you will need to download three files from output artifacts of the train task from training blueprint i.e custom_model.py, custom_model.yaml, custom_model.pth)
 - `--images` refers to the name of the path of the directory where images are stored.
 - `--lang_list` list of language code you want to recognize, for example 'ch_sim','en'. List of supported language code is here.
 - `--decoder` decoder algorithm (default = 'wordbeamsearch') - options are 'greedy', 'beamsearch' and 'wordbeamsearch'.

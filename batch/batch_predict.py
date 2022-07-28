@@ -4,6 +4,8 @@ import pandas as pd
 import argparse
 import pathlib
 import sys
+import yaml
+import requests
 
 cnvrg_workdir = os.environ.get("CNVRG_WORKDIR", "/cnvrg")
 scripts_dir = pathlib.Path(__file__).parent.resolve()
@@ -13,6 +15,14 @@ sys.path.append(easyocr_dir)
 import easyocr
 
 parser = argparse.ArgumentParser(description="""Creator""")
+parser.add_argument(
+    "--retrained_model_path",
+    action="store",
+    dest="retrained_model_path",
+    default=None,
+    required=False,
+    help="""if you want to use your retrained model for ocr provide path here""",
+)
 parser.add_argument(
     "--img_dir",
     action="store",
@@ -33,7 +43,7 @@ parser.add_argument(
     "--decoder",
     action="store",
     dest="decoder",
-    default="wordbeamsearch",
+    default="greedy",
     required=False,
     help="""decoder algorithm to parse text""",
 )
@@ -114,11 +124,51 @@ link_threshold = float(args.link_threshold)
 mag_ratio = float(args.mag_ratio)
 height_ths = float(args.height_ths)
 width_ths = float(args.width_ths)
+new_model = args.retrained_model_path
 
 
 lang_lis = lang_list.split(",")
 count_1 = 0
-reader = easyocr.Reader(lang_lis)  # load the language model into memory
+
+BASE_FOLDER_URL = "https://libhub-readme.s3.us-west-2.amazonaws.com/model_files/ocr/"
+
+FILES = ["craft_mlt_25k.pth", "english_g2.pth"]
+
+
+def download_model_files():
+    """
+    Downloads the model files if they are not already present or pulled as artifacts from a previous train task
+    """
+    current_dir = str(pathlib.Path(__file__).parent.resolve())
+    for f in FILES:
+        if not os.path.exists(
+            current_dir + "/model_dir" + f"/{f}"
+        ) and not os.path.exists("/input/train/" + f):
+            print(f"Downloading file: {f}")
+            response = requests.get(BASE_FOLDER_URL + f)
+            with open(current_dir + "/model_dir/" + f, "wb") as fb:
+                fb.write(response.content)
+
+
+download_model_files()
+if new_model is None:
+    reader = easyocr.Reader(
+        lang_lis,
+        model_storage_directory=os.path.join(scripts_dir, "model_dir"),
+        download_enabled=False,
+    )  # load the language model into memory
+else:
+    with open(
+        os.path.join(new_model, "custom_model.yaml"), "r", encoding="utf8"
+    ) as stream:
+        opt = yaml.safe_load(stream)
+    reader = easyocr.Reader(
+        [opt["lang_list"][0]],
+        model_storage_directory=new_model,
+        user_network_directory=new_model,
+        recog_network="custom_model",
+        download_enabled=False,
+    )
 df = pd.DataFrame(
     columns=["filename", "text", "x_coord", "y_coord", "width", "height", "confidence"]
 )
@@ -167,10 +217,10 @@ for files in os.listdir(img_dir):
             count_1 = count_1 + 1
             df.at[count_1, "filename"] = files
             df.at[count_1, "text"] = result[i][1]
-            df.at[count_1, "x_coord"] = (x + w) / 2
-            df.at[count_1, "y_coord"] = (y + h) / 2
-            df.at[count_1, "width"] = w
-            df.at[count_1, "height"] = h
+            df.at[count_1, "x_coord"] = int((x + w) / 2)
+            df.at[count_1, "y_coord"] = int((y + h) / 2)
+            df.at[count_1, "width"] = int(w)
+            df.at[count_1, "height"] = int(h)
             df.at[count_1, "confidence"] = result[i][-1]
         cv2.imwrite(cnvrg_workdir + files, img)
 df.to_csv(cnvrg_workdir + "/output.csv")  # save the results to a csv file
