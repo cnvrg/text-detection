@@ -37,5 +37,4 @@ arguments:
     img: file
   input_schema:
     img: file
-  output_schema:
-    output: text
+  output_schema: {}
