@@ -37,7 +37,7 @@ tasks:
     - key: workers
       value: '1'
     - key: timeout
-      value: '500'
+      value: '250'
     file_name: predict.py 
     function_name: predict
     prep_file: '' 
