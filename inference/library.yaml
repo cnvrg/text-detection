@@ -29,6 +29,8 @@ arguments:
   gunicorn_config:
     - key: workers
       value: '1'
+    - key: timeout
+      value: '500'
   file_name: predict.py
   function_name: predict
   prep_file: ''
