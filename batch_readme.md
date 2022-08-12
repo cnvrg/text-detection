@@ -15,8 +15,8 @@ NOTE: You can use prebuilt data examples paths that are already provided
 
 Click on the 'Run Flow' button
 In a few minutes you will predict the text in a batch of images and download the CSV file with the information about the text and bounding boxes.
-Go to output artifacts and check for the bounding box images as well as the output csv file.
-You can use the Try it Live section with any image to check your model
+Go to output artifacts and check for the bounding box images as well as the output csv file.  
+You can use the Try it Live section with any image to check your model.  
 You can also integrate your API with your code using the integration panel at the bottom of the page
 
-See here how we created this blueprint
+[See here how we created this blueprint.](https://github.com/cnvrg/text-detection)
