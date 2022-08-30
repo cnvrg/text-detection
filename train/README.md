@@ -16,7 +16,7 @@ For each image in the training dataset there must be a corresponding entry in th
 
 ### Input
 - `--language` Specify the language code to select the language model you want to retrain.
-- `--iterations` specify the number of iterations for which you want to retrain the model. Default value is 10000. Higher number results in higher accuracy but too high a number can lead to overfitting and your model will fail to generalize.
+- `--iterations` specify the number of iterations for which you want to retrain the model. Default value is 300000. Higher number results in higher accuracy but too high a number can lead to overfitting and your model will fail to generalize. The number of iterations set depend on the training and val error. As the training progress, ideally both the losses should come down and after a certain point, val error starts increasing and that is when we should stop the training. Usually data that is of larger size requires more iterations.
 - `--data` specify the folder location containing all images and the labels file as specified above.
   
 ### Output
