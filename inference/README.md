@@ -12,7 +12,7 @@ For example for in case your images have English and Chinese text then enter the
 `key`: lang_list
 `value`: en,ch_sim
 
-**Note**: Currently we only support inference on english model for pretrained models. In case you have trained the model on your own data, in that case you can refer the list of languages supported here. [here](https://www.jaided.ai/easyocr/).(Scroll down the page to see the list) 
+**Note**: List of support languages [here](https://www.jaided.ai/easyocr/).(Scroll down the page to see the list) 
 Similarly you can choose to change the default for certain arguments to the Text Detection model by clicking `+` and adding more environment variables. Different parameters are explained below:
 
 - `lang_list` list of language code you want to recognize, for example 'ch_sim','en'. Currently only english supported for pretrained models. (Models that were not trained by you.)

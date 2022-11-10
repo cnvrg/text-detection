@@ -6,40 +6,17 @@ import magic
 import pathlib
 import sys
 import yaml
-import requests
 
 scripts_dir = pathlib.Path(__file__).parent.resolve()
 easyocr_dir = os.path.join(scripts_dir, "easyocr")
 sys.path.append(easyocr_dir)
 
-
-BASE_FOLDER_URL = "https://libhub-readme.s3.us-west-2.amazonaws.com/model_files/ocr/"
-
-FILES = ["craft_mlt_25k.pth", "english_g2.pth"]
-
-
-def download_model_files():
-    """
-    Downloads the model files if they are not already present or pulled as artifacts from a previous train task
-    """
-    current_dir = str(pathlib.Path(__file__).parent.resolve())
-    for f in FILES:
-        if not os.path.exists(
-            current_dir + "/model_dir" + f"/{f}"
-        ) and not os.path.exists("/input/train/" + f):
-            print(f"Downloading file: {f}")
-            response = requests.get(BASE_FOLDER_URL + f)
-            with open(current_dir + "/model_dir/" + f, "wb") as fb:
-                fb.write(response.content)
-
-
-download_model_files()
 import easyocr
 
 
 # check if the user has set any parameters in the environment variables
 if "lang_list" in os.environ:
-    languages = os.environ["language"].split(",")
+    languages = os.environ["lang_list"].split(",")
 else:
     languages = ["en"]
 
@@ -107,9 +84,7 @@ if os.path.exists("/input/train/custom_model.pth"):
 else:
 
     reader = easyocr.Reader(
-        languages,
-        model_storage_directory=os.path.join(scripts_dir, "model_dir"),
-        download_enabled=False,
+        languages
     )
 
 
