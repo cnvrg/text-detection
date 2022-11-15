@@ -1,8 +1,8 @@
 ---
 title: Text Detection Batch
 version: 1.0.0
-description: "detect and parse text from images in ascii format"
-long_description: "Detecting and outputting the text found in images and creating bounding boxes over the text in the image."
+description: "Detect text elements and create bounding boxes in a batch of images."
+long_description: "Detect text elements and create bounding boxes in a batch of images within a specified directory."
 
 author: "cnvrg"
 author_email: "libhub@cnvrg.io"

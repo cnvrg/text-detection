@@ -1,8 +1,8 @@
 ---
 title: Text Detection Inference
 version: 1.0.0
-description: "Detecting and writing text value from images"
-long_description: "Detecting the text value in several languages from an image and writing it as a json response"
+description: "Detect text elements and their locations in images using a pretrained text-detector model and a custom dataset."
+long_description: "Detect text elements and their locations in images using a pretrained text-detector model and a custom dataset."
 author: "cnvrg"
 author_email: "libhub@cnvrg.io"
 

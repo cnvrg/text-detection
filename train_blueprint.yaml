@@ -1,8 +1,8 @@
 ---
 title: Text Detection Training
 version: 1.0.0 
-description: Training the text detecion algorithm for custom dataset and deploying it. 
-long_description: Training the text detection algorithm to for custom object detection and deploying the final model as an endpoint. 
+description: Train a tailored model with your custom data to detect and convert an image’s typed or printed text.
+long_description: Train a tailored model with your custom data, and deploy an endpoint, which detects and converts an image’s typed or printed text (in a supported language) into machine-encoded text.
 
 author: "cnvrg"
 author_email: "libhub@cnvrg.io"
