@@ -6,3 +6,5 @@ You can use this blueprint to immediately detect and recognize text in your imag
 4. You can now use the `Try it Live` section with any image (for example: LINK)
 5. You can now integrate your API with your code using the integration panel at the bottom of the page
 6. You will now have a functioning API endpoint that returns the text in images!
+
+[See here how we created this blueprint](https://github.com/cnvrg/text-detection).
